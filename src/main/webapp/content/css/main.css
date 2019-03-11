@@ -1,0 +1,817 @@
+body {
+	background: #fafafa;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #333;
+}
+
+/* ==========================================================================
+Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
+========================================================================== */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak,
+	.x-ng-cloak {
+	display: none !important;
+}
+
+/* ==========================================================================
+Developement Ribbon
+========================================================================== */
+.ribbon {
+	background-color: #a00;
+	box-shadow: 0 0 10px #888;
+	left: -3.5em;
+	moz-box-shadow: 0 0 10px #888;
+	moz-transform: rotate(-45deg);
+	ms-transform: rotate(-45deg);
+	o-transform: rotate(-45deg);
+	overflow: hidden;
+	position: absolute;
+	top: 40px;
+	transform: rotate(-45deg);
+	webkit-box-shadow: 0 0 10px #888;
+	webkit-transform: rotate(-45deg);
+	white-space: nowrap;
+	width: 15em;
+	z-index: 9999;
+	pointer-events: none;
+}
+
+.ribbon a {
+	border: 1px solid #faa;
+	color: #fff;
+	display: block;
+	font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	margin: 1px 0;
+	padding: 10px 50px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 0 5px #444;
+	pointer-events: none;
+}
+
+/* ==========================================================================
+Version number in navbar
+========================================================================== */
+.navbar-version {
+	font-size: 10px;
+	color: #ccc;
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+/* ==========================================================================
+Logo styles
+========================================================================== */
+.navbar-brand.logo {
+	padding: 10px 15px;
+	padding-top: 9px;
+}
+
+.navbar-brand.logo .logo-img {
+	height: 32px;
+	width: 32px;
+	display: inline-block;
+}
+
+/* ==========================================================================
+Main page styles
+========================================================================== */
+.hero-unit {
+	margin: 50px auto 0 auto;
+	width: 300px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 30px;
+	background-color: #eee;
+	border-radius: 6px;
+	padding: 60px;
+}
+
+.hero-unit h1 {
+	font-size: 60px;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+
+.hipster {
+	display: inline-block;
+	width: 347px;
+	height: 497px;
+	background: url("../images/hipster.png") no-repeat center top;
+	background-size: contain;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) , only screen and
+		(min--moz-device-pixel-ratio: 2) , only screen and
+		(-o-min-device-pixel-ratio: 2 / 1) , only screen and
+		(min-device-pixel-ratio: 2) , only screen and (min-resolution: 192dpi)
+		, only screen and (min-resolution: 2dppx) {
+	.hipster {
+		background: url("../images/hipster2x.png") no-repeat center top;
+		background-size: contain;
+	}
+}
+
+/* ==========================================================================
+Generic styles
+========================================================================== */
+.error {
+	color: white;
+	background-color: red;
+}
+
+.pad {
+	padding: 10px;
+}
+
+.break {
+	white-space: normal;
+	word-break: break-all;
+}
+
+.voffset {
+	margin-top: 2px;
+}
+
+.voffset1 {
+	margin-top: 5px;
+}
+
+.voffset2 {
+	margin-top: 10px;
+}
+
+.voffset3 {
+	margin-top: 15px;
+}
+
+.voffset4 {
+	margin-top: 30px;
+}
+
+.voffset5 {
+	margin-top: 40px;
+}
+
+.voffset6 {
+	margin-top: 60px;
+}
+
+.voffset7 {
+	margin-top: 80px;
+}
+
+.voffset8 {
+	margin-top: 100px;
+}
+
+.voffset9 {
+	margin-top: 150px;
+}
+
+.readonly {
+	background-color: #eee;
+	opacity: 1;
+}
+
+/* ==========================================================================
+make sure browsers use the pointer cursor for anchors, even with no href
+========================================================================== */
+a:hover {
+	cursor: pointer;
+}
+
+.hand {
+	cursor: pointer;
+}
+
+/* ==========================================================================
+Metrics and Health styles
+========================================================================== */
+#threadDump .popover, #healthCheck .popover {
+	top: inherit;
+	display: block;
+	font-size: 10px;
+	max-width: 1024px;
+}
+
+#healthCheck .popover {
+	margin-left: -50px;
+}
+
+.health-details {
+	min-width: 400px;
+}
+
+/* ==========================================================================
+start Password strength bar style
+========================================================================== */
+ul#strength {
+	display: inline;
+	list-style: none;
+	margin: 0;
+	margin-left: 15px;
+	padding: 0;
+	vertical-align: 2px;
+}
+
+.point {
+	background: #DDD;
+	border-radius: 2px;
+	display: inline-block;
+	height: 5px;
+	margin-right: 1px;
+	width: 20px;
+}
+
+.point:last {
+	margin: 0 !important;
+}
+
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
+.alerts .alert {
+	text-overflow: ellipsis;
+}
+
+.alerts .alert pre {
+	background: none;
+	border: none;
+	font: inherit;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+}
+
+.alerts .alert .popover pre {
+	font-size: 10px;
+}
+
+.alerts .toast {
+	position: fixed;
+	width: 100%;
+}
+
+.alerts .toast.left {
+	left: 5px;
+}
+
+.alerts .toast.right {
+	right: 5px;
+}
+
+.alerts .toast.top {
+	top: 55px;
+}
+
+.alerts .toast.bottom {
+	bottom: 55px;
+}
+
+@media screen and (min-width: 480px) {
+	.alerts .toast {
+		width: 50%;
+	}
+}
+
+/* ==========================================================================
+entity tables helpers
+========================================================================== */
+/* Remove Bootstrap padding from the element
+   http://stackoverflow.com/questions/19562903/remove-padding-from-columns-in-bootstrap-3 */
+.no-padding-left {
+	padding-left: 0 !important;
+}
+
+.no-padding-right {
+	padding-right: 0 !important;
+}
+
+.no-padding-top {
+	padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+	padding-bottom: 0 !important;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+/* bootstrap 3 input-group 100% width
+   http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
+.width-min {
+	width: 1% !important;
+}
+
+/* Makes toolbar not wrap on smaller screens
+   http://www.sketchingwithcss.com/samplechapter/cheatsheet.html#right */
+.flex-btn-group-container {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+
+.jh-table>tbody>tr>td {
+	/* Align text in td verifically (top aligned by Bootstrap) */
+	vertical-align: middle;
+}
+
+.jh-table>thead>tr>th>.glyphicon-sort, .jh-table>thead>tr>th>.glyphicon-sort-by-attributes,
+	.jh-table>thead>tr>th>.glyphicon-sort-by-attributes-alt {
+	/* less visible sorting icons */
+	opacity: 0.5;
+}
+
+.jh-table>thead>tr>th>.glyphicon-sort:hover, .jh-table>thead>tr>th>.glyphicon-sort-by-attributes:hover,
+	.jh-table>thead>tr>th>.glyphicon-sort-by-attributes-alt:hover {
+	/* full visible sorting icons and pointer when mouse is over them */
+	opacity: 1;
+	cursor: pointer;
+}
+
+/* ==========================================================================
+entity detail page css
+========================================================================== */
+.dl-horizontal.jh-entity-details>dd {
+	margin-bottom: 15px;
+}
+
+@media screen and (min-width: 768px) {
+	.dl-horizontal.jh-entity-details>dt {
+		margin-bottom: 15px;
+	}
+	.dl-horizontal.jh-entity-details>dd {
+		border-bottom: 1px solid #eee;
+		padding-left: 180px;
+		margin-left: 0;
+	}
+}
+
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+.nav, .pagination, .carousel, .panel-title a {
+	cursor: pointer;
+}
+
+.datetime-picker-dropdown>li.date-picker-menu div>table .btn-default,
+	.uib-datepicker-popup>li>div.uib-datepicker>table .btn-default {
+	border: 0;
+}
+
+.datetime-picker-dropdown>li.date-picker-menu div>table:focus,
+	.uib-datepicker-popup>li>div.uib-datepicker>table:focus {
+	outline: none;
+}
+
+/* jhipster-needle-scss-add-main JHipster will add new css style */
+@media ( min-width : 768px) {
+	.sidebar-nav .navbar .navbar-collapse {
+		padding: 0;
+		max-height: none;
+	}
+	.sidebar-nav .navbar ul {
+		float: none;
+	}
+	.sidebar-nav .navbar ul:not {
+		display: block;
+	}
+	.sidebar-nav .navbar li {
+		float: none;
+		display: block;
+	}
+	.sidebar-nav .navbar li a {
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+}
+
+.mm-bar {
+	border-color: #090909;
+	float: left;
+	padding-top: 20px;
+	height: 100%;
+	min-height: 800px;
+	width: 100%;
+}
+
+.mm-item {
+	border-color: #090909;
+	border-radius: 0px !important;
+	color: #f5f5f5;
+}
+
+.mm-body {
+	
+}
+
+.intro-header {
+	padding-top: 0px;
+	/* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+	padding-bottom: 0px;
+	text-align: center;
+	color: #400040;
+	background: url(../images/intro-bg.jpg) no-repeat center center;
+	background-size: cover;
+	margin-right: -50px;
+	margin-left: -50px;
+}
+
+.intro-message {
+	position: relative;
+	padding-top: 10%;
+	padding-bottom: 10%;
+}
+
+.intro-message>h1 {
+	margin: 0;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+	font-size: 6em;
+}
+
+.intro-message>h2 {
+	margin: 0;
+	font-size: 3em;
+}
+
+.banner {
+	padding: 100px 0;
+	color: #f8f8f8;
+	background: url(../img/banner-bg.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+.banner h2 {
+	margin: 0;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+	font-size: 3em;
+}
+
+.banner ul {
+	margin-bottom: 0;
+}
+
+.banner-social-buttons {
+	float: right;
+	margin-top: 0;
+}
+
+/*  bhoechie tab */
+div.bhoechie-tab-container {
+	z-index: 10;
+	background-color: #ffffff;
+	padding: 0 !important;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	border: 1px solid #ddd;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	-moz-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	background-clip: padding-box;
+	opacity: 0.97;
+	filter: alpha(opacity = 97);
+	min-height: 800px;
+}
+
+div.bhoechie-tab-menu {
+	padding-right: 0;
+	padding-left: 0;
+	padding-bottom: 0;
+}
+
+div.bhoechie-tab-menu div.list-group {
+	margin-bottom: 0;
+}
+
+div.bhoechie-tab-menu div.list-group>a {
+	margin-bottom: 0;
+}
+
+div.bhoechie-tab-menu div.list-group>a .glyphicon, div.bhoechie-tab-menu div.list-group>a .fa
+	{
+	color: #000;
+}
+
+div.bhoechie-tab-menu div.list-group>a:first-child {
+	border-top-right-radius: 0;
+	-moz-border-top-right-radius: 0;
+}
+
+div.bhoechie-tab-menu div.list-group>a:last-child {
+	border-bottom-right-radius: 0;
+	-moz-border-bottom-right-radius: 0;
+}
+
+div.bhoechie-tab-menu div.list-group>a.active, div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+	div.bhoechie-tab-menu div.list-group>a.active .fa {
+	background-color: #000;
+	background-image: #000;
+	color: #ffffff;
+}
+
+div.bhoechie-tab-menu div.list-group>a.active:after {
+	content: '';
+	position: absolute;
+	left: 100%;
+	top: 50%;
+	margin-top: -13px;
+	border-left: 0;
+	border-bottom: 13px solid transparent;
+	border-top: 13px solid transparent;
+	border-left: 10px solid #000;
+}
+
+div.bhoechie-tab-content {
+	background-color: #ffffff;
+	/* border: 1px solid #eeeeee; */
+	padding-top: 10px;
+}
+
+div.bhoechie-tab div.bhoechie-tab-content:not (.active ){
+	display: none;
+}
+
+.timeline {
+	position: relative;
+	padding: 21px 0px 10px;
+	margin-top: 4px;
+	margin-bottom: 30px;
+}
+
+.timeline .line {
+	position: absolute;
+	width: 4px;
+	display: block;
+	background: currentColor;
+	top: 0px;
+	bottom: 0px;
+	margin-left: 30px;
+}
+
+.timeline .separator {
+	border-top: 1px solid currentColor;
+	padding: 5px;
+	padding-left: 40px;
+	font-style: italic;
+	font-size: .9em;
+	margin-left: 30px;
+}
+
+.timeline .line::before {
+	top: -4px;
+}
+
+.timeline .line::after {
+	bottom: -4px;
+}
+
+.timeline .line::before, .timeline .line::after {
+	content: '';
+	position: absolute;
+	left: -4px;
+	width: 12px;
+	height: 12px;
+	display: block;
+	border-radius: 50%;
+	background: currentColor;
+}
+
+.timeline .panel {
+	position: relative;
+	margin: 10px 0px 21px 70px;
+	clear: both;
+}
+
+.timeline .panel::before {
+	position: absolute;
+	display: block;
+	top: 8px;
+	left: -24px;
+	content: '';
+	width: 0px;
+	height: 0px;
+	border: inherit;
+	border-width: 12px;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+}
+
+.timeline .panel .panel-heading.icon * {
+	font-size: 16px;
+	vertical-align: middle;
+	line-height: 20px;
+}
+
+.timeline .panel .panel-heading.icon {
+	position: absolute;
+	left: -59px;
+	display: block;
+	width: 40px;
+	height: 40px;
+	padding: 0px;
+	border-radius: 50%;
+	text-align: center;
+	float: left;
+}
+
+.timeline .panel-outline {
+	border-color: transparent;
+	background: transparent;
+	box-shadow: none;
+}
+
+.timeline .panel-outline .panel-body {
+	padding: 10px 0px;
+}
+
+.timeline .panel-outline .panel-heading:not (.icon ), .timeline .panel-outline .panel-footer
+	{
+	display: none;
+}
+
+.bs-calltoaction {
+	position: relative;
+	width: auto;
+	padding: 5px;
+	border: 1px solid black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+.bs-calltoaction>.row {
+	display: table;
+	width: calc(100% + 30px);
+}
+
+.bs-calltoaction>.row>[class^="col-"], .bs-calltoaction>.row>[class*=" col-"]
+	{
+	float: none;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.cta-contents {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.cta-title {
+	margin: 0 auto 0px;
+	padding: 0;
+}
+
+.cta-desc {
+	padding: 0;
+}
+
+.cta-desc p:last-child {
+	margin-bottom: 0;
+}
+
+.cta-button {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+@media ( max-width : 991px) {
+	.bs-calltoaction>.row {
+		display: block;
+		width: auto;
+	}
+	.bs-calltoaction>.row>[class^="col-"], .bs-calltoaction>.row>[class*=" col-"]
+		{
+		float: none;
+		display: block;
+		vertical-align: middle;
+		position: relative;
+	}
+	.cta-contents {
+		text-align: center;
+	}
+}
+
+.bs-calltoaction.bs-calltoaction-default {
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
+}
+
+.bs-calltoaction.bs-calltoaction-primary {
+	color: #fff;
+	background-color: #337ab7;
+	border-color: #2e6da4;
+}
+
+.bs-calltoaction.bs-calltoaction-info {
+	color: #fff;
+	background-color: #5bc0de;
+	border-color: #46b8da;
+}
+
+.bs-calltoaction.bs-calltoaction-success {
+	color: #fff;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+}
+
+.bs-calltoaction.bs-calltoaction-warning {
+	color: #fff;
+	background-color: #f0ad4e;
+	border-color: #eea236;
+}
+
+.bs-calltoaction.bs-calltoaction-danger {
+	color: #fff;
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
+
+.bs-calltoaction.bs-calltoaction-primary .cta-button .btn,
+	.bs-calltoaction.bs-calltoaction-info .cta-button .btn,
+	.bs-calltoaction.bs-calltoaction-success .cta-button .btn,
+	.bs-calltoaction.bs-calltoaction-warning .cta-button .btn,
+	.bs-calltoaction.bs-calltoaction-danger .cta-button .btn {
+	border-color: #fff;
+}
+
+.form-groupcheck input[type="checkbox"] {
+	display: none;
+}
+
+.form-groupcheck input[type="checkbox"]+.btn-group>label span {
+	width: 20px;
+}
+
+.form-groupcheck input[type="checkbox"]+.btn-group>label span:first-child
+	{
+	display: none;
+}
+
+.form-groupcheck input[type="checkbox"]+.btn-group>label span:last-child
+	{
+	display: inline-block;
+}
+
+.form-groupcheck input[type="checkbox"]:checked+.btn-group>label span:first-child
+	{
+	display: inline-block;
+}
+
+.form-groupcheck input[type="checkbox"]:checked+.btn-group>label span:last-child
+	{
+	display: none;
+}
+
+.btn-circle {
+	width: 50px;
+	height: 50px;
+	padding: 13px 13px;
+	font-size: 18px;
+	line-height: 1.33;
+	border-radius: 25px;
+}
+
+.well-dashboard {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #14171a4d;
+	border-right: 1px solid #14171a4d;
+	border-left: 1px solid #14171a4d;
+	border-radius: 0px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.well-dashboard blockquote {
+	border-color: #ddd;
+	border-color: rgba(0, 0, 0, 0.15);
+}
+
+.well-dashboard-lg {
+	padding: 24px;
+	border-radius: 6px;
+}
+
+.well-dashboard-sm {
+	padding: 9px;
+	border-radius: 3px;
+}
+

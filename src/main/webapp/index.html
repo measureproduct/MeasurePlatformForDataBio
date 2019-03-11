@@ -1,0 +1,300 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>MeasurePlatform</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!-- build:css content/css/vendor.css -->
+<!-- bower:css -->
+<link rel="stylesheet"
+	href="bower_components/angular-loading-bar/build/loading-bar.css">
+<!-- endinject -->
+<link rel="stylesheet" href="content/css/vendor.css">
+
+<!-- endbuild -->
+<!-- build:css content/css/main.css -->
+<link rel="stylesheet" href="content/css/main.css">
+<!-- endbuild -->
+</head>
+<body ng-app="measurePlatformApp" ng-strict-di>
+	<!--[if lt IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+	<div ui-view="navbar" ng-cloak></div>
+	<div class="container" style="width: 100%; padding: 0px;">
+		<div ui-view="content">
+			<!-- Angular views -->
+		</div>
+	</div>
+
+	<!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>-->
+
+	<!-- build:js app/vendor.js -->
+	<!-- bower:js -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/json3/lib/json3.js"></script>
+	<script src="bower_components/messageformat/messageformat.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script
+		src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="bower_components/ngstorage/ngStorage.js"></script>
+	<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script
+		src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script
+		src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
+	<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+	<script
+		src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+	<!-- endinject -->
+	<!-- endbuild -->
+
+	<!-- build:js app/app.js  -->
+	<!-- inject:js -->
+	<script src="app/app.module.js"></script>
+	<script src="app/services/user/user.service.js"></script>
+	<script src="app/services/profiles/profile.service.js"></script>
+	<script src="app/services/profiles/page-ribbon.directive.js"></script>
+	<script src="app/services/auth/sessions.service.js"></script>
+	<script src="app/services/auth/register.service.js"></script>
+	<script src="app/services/auth/principal.service.js"></script>
+	<script src="app/services/auth/password-reset-init.service.js"></script>
+	<script src="app/services/auth/password-reset-finish.service.js"></script>
+	<script src="app/services/auth/password.service.js"></script>
+	<script src="app/services/auth/has-authority.directive.js"></script>
+	<script src="app/services/auth/has-any-authority.directive.js"></script>
+	<script src="app/services/auth/auth.session.service.js"></script>
+	<script src="app/services/auth/auth.service.js"></script>
+	<script src="app/services/auth/activate.service.js"></script>
+	<script src="app/services/auth/account.service.js"></script>
+	<script src="app/services/measurement/measurement.service.js"></script>
+	<script src="app/layouts/navbar/navbar.controller.js"></script>
+	<script src="app/layouts/navbar/active-link.directive.js"></script>
+	<script src="app/layouts/error/error.state.js"></script>
+
+
+	<script src="app/services/entities/analysis-card.service.js"></script>
+	<script src="app/services/entities/dashboard.service.js"></script>
+	<script src="app/services/entities/measure-instance.service.js"></script>
+	<script src="app/services/entities/measure-property.service.js"></script>
+	<script src="app/services/entities/measure-view.service.js"></script>
+	<script src="app/services/entities/notification.service.js"></script>
+	<script src="app/services/entities/project-analysis.service.js"></script>
+	<script src="app/services/entities/project.service.js"></script>
+
+
+
+	<script src="app/components/util/truncate-words.filter.js"></script>
+	<script src="app/components/util/truncate-characters.filter.js"></script>
+	<script src="app/components/util/sort-by.directive.js"></script>
+	<script src="app/components/util/sort.directive.js"></script>
+	<script src="app/components/util/parse-links.service.js"></script>
+	<script src="app/components/util/pagination-util.service.js"></script>
+	<script src="app/components/util/jhi-item-count.directive.js"></script>
+	<script src="app/components/util/date-util.service.js"></script>
+	<script src="app/components/util/data-util.service.js"></script>
+	<script src="app/components/util/capitalize.filter.js"></script>
+	<script src="app/components/util/base64.service.js"></script>
+	<script src="app/components/login/login.service.js"></script>
+	<script src="app/components/login/login.controller.js"></script>
+	<script src="app/components/form/show-validation.directive.js"></script>
+	<script src="app/components/form/pagination.constants.js"></script>
+	<script src="app/components/form/minbytes.directive.js"></script>
+	<script src="app/components/form/maxbytes.directive.js"></script>
+	<script src="app/components/alert/alert-error.directive.js"></script>
+	<script src="app/components/alert/alert.service.js"></script>
+	<script src="app/components/alert/alert.directive.js"></script>
+	<script src="app/blocks/interceptor/notification.interceptor.js"></script>
+	<script src="app/blocks/interceptor/errorhandler.interceptor.js"></script>
+	<script src="app/blocks/interceptor/auth-expired.interceptor.js"></script>
+	<script src="app/blocks/handlers/state.handler.js"></script>
+	<script src="app/blocks/config/uib-pagination.config.js"></script>
+	<script src="app/blocks/config/uib-pager.config.js"></script>
+	<script src="app/blocks/config/localstorage.config.js"></script>
+	<script src="app/blocks/config/http.config.js"></script>
+	<script src="app/blocks/config/compile.config.js"></script>
+	<script src="app/blocks/config/alert.config.js"></script>
+	<script src="app/app.state.js"></script>
+	<script src="app/app.constants.js"></script>
+	<script
+		src="app/admin/user-management/user-management-dialog.controller.js"></script>
+	<script
+		src="app/admin/user-management/user-management-detail.controller.js"></script>
+	<script
+		src="app/admin/user-management/user-management-delete-dialog.controller.js"></script>
+	<script src="app/admin/user-management/user-management.state.js"></script>
+	<script src="app/admin/user-management/user-management.controller.js"></script>
+	<script src="app/admin/logs/logs.state.js"></script>
+	<script src="app/admin/logs/logs.service.js"></script>
+	<script src="app/admin/logs/logs.controller.js"></script>
+	<script src="app/admin/health/health.state.js"></script>
+	<script src="app/admin/health/health.service.js"></script>
+	<script src="app/admin/health/health.modal.controller.js"></script>
+	<script src="app/admin/health/health.controller.js"></script>
+	<script src="app/admin/docs/docs.state.js"></script>
+	<script src="app/admin/configuration/configuration.state.js"></script>
+	<script src="app/admin/configuration/configuration.service.js"></script>
+	<script src="app/admin/configuration/configuration.controller.js"></script>
+	<script src="app/admin/audits/audits.state.js"></script>
+	<script src="app/admin/audits/audits.service.js"></script>
+	<script src="app/admin/audits/audits.controller.js"></script>
+	<script src="app/admin/admin.state.js"></script>
+	<script src="app/account/settings/settings.state.js"></script>
+	<script src="app/account/settings/settings.controller.js"></script>
+	<script src="app/account/sessions/sessions.state.js"></script>
+	<script src="app/account/sessions/sessions.controller.js"></script>
+	<script src="app/account/reset/request/reset.request.state.js"></script>
+	<script src="app/account/reset/request/reset.request.controller.js"></script>
+	<script src="app/account/reset/finish/reset.finish.state.js"></script>
+	<script src="app/account/reset/finish/reset.finish.controller.js"></script>
+	<script src="app/account/register/register.state.js"></script>
+	<script src="app/account/register/register.controller.js"></script>
+	<script src="app/account/password/password-strength-bar.directive.js"></script>
+	<script src="app/account/password/password.state.js"></script>
+	<script src="app/account/password/password.controller.js"></script>
+	<script src="app/account/activate/activate.state.js"></script>
+	<script src="app/account/activate/activate.controller.js"></script>
+	<script src="app/account/account.state.js"></script>
+
+	<!-- Measure Paltform -->
+	<script src="app/home/home.state.js"></script>
+	<script src="app/home/home.controller.js"></script>
+
+	<script src="app/pages/catalogue/catalogue.state.js"></script>
+	<script src="app/pages/catalogue/catalogue.controller.js"></script>
+	<script src="app/pages/catalogue/catalogue.service.js"></script>
+	<script src="app/pages/catalogue/newproject.controller.js"></script>
+
+	<script src="app/pages/catalogue/common/uploadfile.directive.js"></script>
+
+	<script src="app/pages/catalogue/application/application.controller.js"></script>
+	<script src="app/pages/catalogue/application/application.service.js"></script>
+	<script src="app/pages/catalogue/application/application.state.js"></script>
+	<script
+		src="app/pages/catalogue/application/application-upload-dialog.controller.js"></script>
+	<script
+		src="app/pages/catalogue/application/application-delete-dialog.controller.js"></script>
+
+	<script src="app/pages/catalogue/measure/measure.controller.js"></script>
+	<script src="app/pages/catalogue/measure/measure.service.js"></script>
+	<script src="app/pages/catalogue/measure/measure.state.js"></script>
+	<script
+		src="app/pages/catalogue/measure/measure-delete-dialog.controller.js"></script>
+	<script
+		src="app/pages/catalogue/measure/measure-upload-dialog.controller.js"></script>
+
+	<script src="app/pages/project/edition/appproject.controller.js"></script>
+	<script src="app/pages/project/edition/appproject-dialog.controller.js"></script>
+	<script
+		src="app/pages/project/edition/appproject-delete-dialog.controller.js"></script>
+
+	<script src="app/pages/project/overview/overview.controller.js"></script>
+	<script src="app/pages/project/overview/overview.state.js"></script>
+	<script
+		src="app/pages/project/overview/dashboard/phasedashboard-delete-dialog.controller.js"></script>
+	<script
+		src="app/pages/project/overview/dashboard/phasedashboard-dialog.controller.js"></script>
+
+
+	<script src="app/pages/project/analysis/analysis.mainview.state.js"></script>
+	<script
+		src="app/pages/project/analysis/analysis.mainview.controller.js"></script>
+
+
+
+	<script src="app/pages/project/notification/notification.controller.js"></script>
+	<script src="app/pages/project/notification/notification.state.js"></script>
+
+	<script src="app/pages/project/configuration/general/general.controller.js"></script>
+	<script src="app/pages/project/configuration/general/general.state.js"></script>
+
+	<script
+		src="app/pages/project/configuration/users-right-access/users-right-access.controller.js"></script>
+	<script
+		src="app/pages/project/configuration/users-right-access/users-right-access.state.js"></script>
+	<script
+		src="app/pages/project/configuration/users-right-access/users-right-access.service.js"></script>
+	<script
+		src="app/pages/project/configuration/users-right-access/users-right-access-dialog.controller.js"></script>
+	<script
+		src="app/pages/project/configuration/users-right-access/users-right-access-delete-dialog.controller.js"></script>
+
+	<script
+		src="app/pages/project/configuration/analysis-catalogue/analysis-catalogue.state.js"></script>
+	<script
+		src="app/pages/project/configuration/analysis-catalogue/analysis-catalogue.controller.js"></script>
+	<script
+		src="app/pages/project/configuration/analysis-catalogue/add-analysis-dialog.controller.js"></script>
+	<script
+		src="app/pages/project/configuration/analysis-catalogue/analysis-delete-dialog.controller.js"></script>
+
+
+	<script
+		src="app/pages/project/configuration/analysis/analysis.configurationview.controller.js"></script>
+	<script
+		src="app/pages/project/configuration/analysis/analysis.configurationview.state.js"></script>
+
+	<script
+		src="app/pages/project/datasources/measureinstances/datasources.controller.js"></script>
+	<script
+		src="app/pages/project/datasources/measureinstances/datasources.state.js"></script>
+	<script
+		src="app/pages/project/datasources/measureinstances/datasources.service.js"></script>
+	<script
+		src="app/pages/project/datasources/measureinstances/datasource-dialog.controller.js"></script>
+	<script
+		src="app/pages/project/datasources/measureinstances/datasource-delete-dialog.controller.js"></script>
+	<script
+		src="app/pages/project/datasources/measureinstances/datasource-test-dialog.controller.js"></script>
+
+	<script
+		src="app/pages/project/datasources/applicationinstances/applicationinstances.controller.js"></script>
+	<script
+		src="app/pages/project/datasources/applicationinstances/applicationinstances.state.js"></script>
+	<script
+		src="app/pages/project/datasources/applicationinstances/applicationinstances.service.js"></script>
+	<script
+		src="app/pages/project/datasources/applicationinstances/applicationinstances-dialog.controller.js"></script>
+	<script
+		src="app/pages/project/datasources/applicationinstances/applicationinstances-delete-dialog.controller.js"></script>
+
+
+	<script src="app/pages/logs/measure-log.controller.js"></script>
+	<script src="app/pages/logs/measure-log.service.js"></script>
+	<script src="app/pages/logs/measure-log.state.js"></script>
+
+	<script src="app/pages/agents/measure-agent.controller.js"></script>
+	<script src="app/pages/agents/measure-agent.service.js"></script>
+	<script src="app/pages/agents/measure-agent.state.js"></script>
+
+	<script
+		src="app/pages/analysisservices/analysis-services.controller.js"></script>
+	<script src="app/pages/analysisservices/analysis-services.service.js"></script>
+	<script src="app/pages/analysisservices/analysis-services.state.js"></script>
+	<script
+		src="app/pages/analysisservices/analysis-services-configuration-dialog.controller.js"></script>
+
+	<script src="app/pages/graphics/graphic-dialog.controller.js"></script>
+	<script src="app/pages/graphics/graphic.service.js"></script>
+
+	<script src="app/configuration.service.js"></script>
+	<script src="app/pages/graphics/goClick.directive.js"></script>
+
+</body>
+</html>

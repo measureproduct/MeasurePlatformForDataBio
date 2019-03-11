@@ -1,0 +1,53 @@
+<div style="margin-left: 50px; margin-right: 50px;">
+
+	<div class="mm-body">
+		<div class="page-header">
+			<h2>External Data Collector</h2>
+		</div>
+
+		<ol class="breadcrumb">
+			<li><a ui-sref="home">Home</a></li>
+			<li><a ui-sref="measure-agent">External Data Collector</a></li>
+		</ol>
+
+		<table class="jh-table table table-striped">
+			<thead>
+				<tr>
+					<th><span>Data Collector</span></th>
+					<th><span>Provided Measures</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="agent in vm.agents">
+					<td style="vertical-align: top;">
+						<h3 style="margin-top: 0px;">
+							<span class="label label-default">{{agent.agentName}}</span>
+						</h3>
+					</td>
+					<td style="vertical-align: top;">
+						<div ng-repeat="measure in agent.providedMeasures">				
+							<div class="media panel panle-primary" style="margin:5px;padding:5px">
+								<div class="media-left">
+									<img class="media-object" ng-src="content/images/{{measure.type}}_big.png">	
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">{{measure.name}}</h4>
+									{{measure.description}}
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+

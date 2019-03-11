@@ -1,0 +1,105 @@
+
+<div style="margin-left: 10px; margin-right: 10px;">
+
+	<div class="mm-body">
+		<div class="page-header" style="min-height: 40px;">
+			<div style="float: left;">
+				<img class="img-rounded"
+					style="width: 30px; height: 30px; margin-right: 20px;"
+					src="content/images/measureLogo.png"
+					ng-show="vm.project.projectImage == null" /> <img
+					class="img-rounded" style="width: 30px; height: 30px;"
+					src="{{vm.project.projectImage}}"
+					ng-show="vm.project.projectImage != null" />
+
+			</div>
+			<h2>{{vm.project.projectName}}</h2>
+		</div>
+
+		<ol class="breadcrumb">
+			<li><a ui-sref="home">Home</a></li>
+			<li><a ui-sref="catalogue">Projects</a></li>
+			<li><a ui-sref="projectoverview({id:vm.project.id})">
+					{{vm.project.projectName}}</a></li>
+		</ol>
+
+		<div class="row" style="margin: 0px;">
+			<div class="col-lg-12 bhoechie-tab-container">
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 bhoechie-tab-menu">
+					<div class="list-group">
+						<a ui-sref="projectoverview({id:vm.project.id})"
+							class="list-group-item text-center">
+							<h4 class="glyphicon glyphicon-blackboard"></h4> <br />Dashboards
+						</a> <a ui-sref="notification({id:vm.project.id})"
+							class="list-group-item text-center">
+							<h4 class="glyphicon glyphicon-flag"></h4> <br />Notifications
+							({{vm.notifications.length}})
+						</a> <a
+							ui-sref="analysismainview({id:vm.project.id})"
+							class="list-group-item text-center ">
+							<h4 class="glyphicon glyphicon-barcode"></h4> <br />Data Analysis
+						</a><a ui-sref="projectdatasources({id:vm.project.id})"
+							class="list-group-item text-center">
+							<h4 class="glyphicon glyphicon-export"></h4> <br />Data sources
+						</a> <a ui-sref="generalconf({id:vm.project.id})"
+							class="list-group-item text-center active">
+							<h4 class="glyphicon glyphicon-cog"></h4> <br />Configuration
+						</a> 
+					</div>
+				</div>
+
+				<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 bhoechie-tab">
+					<!-- Project Overview section -->
+					<div class="bhoechie-tab-content">
+
+							<ul class="nav nav-tabs">
+							<li role="presentation"><a
+								ui-sref="generalconf({id:vm.project.id})">Project Overview</a></li>
+							<li role="presentation"><a
+								ui-sref="users-rightaccess({id:vm.project.id})">Project Users</a></li>
+							<li role="presentation" class="active"><a
+								ui-sref="projectanalysis-catalogue({id:vm.project.id})"  >Analysis
+									Tools</a></li>
+
+							<li ng-repeat="analyse in vm.analysis" role="presentation"
+								ui-sref="analysisconfigurationview({id:vm.project.id,anid:analyse.id})"><a>{{analyse.analysisToolId}}</a></li>
+
+						</ul>
+						<div class="well-dashboard" style="min-height: 300px;">
+							<table style="width: 98%; margin: 20px;">
+								<tbody>
+									<tr ng-repeat="service in vm.services">
+										<td style="vertical-align: top; width: 60px;"><a href="#"><img
+												class="img-rounded" style="width: 48px;margin-right:10px;margin-top :5px;"
+												src="content/images/multimedia.png" /> </a></td>
+
+										<td style="vertical-align: top; width: 100%"><h3
+												style="margin-top: 5px; margin-bottom: 5px;">
+												{{service.name}}</h3>{{service.description}}</td>
+												
+										<td >
+											<button
+												class="btn {{service.status == true ? 'btn-success' : 'btn-danger'}} btn-sm"
+												ng-click="service.status == true ? vm.stopAnalyse(service) : vm.startAnalyse(service)">
+												<span class="glyphicon glyphicon glyphicon-off"></span>
+											</button>
+										</td>
+									</tr>	
+								</tbody> 
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+

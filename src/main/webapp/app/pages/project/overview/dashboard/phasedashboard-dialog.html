@@ -1,0 +1,181 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+	<div class="modal-header">
+		<div data-toggle="buttons" style="float: right;">
+			<label
+				class="btn btn-default btn-circle btn-lg {{vm.active('MANUAL')}}">
+				<input type="radio" value="MANUAL" ng-model="vm.dashboard.mode"><i
+				class="glyphicon glyphicon-th"></i>
+			</label> <label
+				class="btn btn-default btn-circle btn-lg {{vm.active('KIBANA')}}">
+				<input type="radio" value="KIBANA" ng-model="vm.dashboard.mode">
+				<b>K</b></i>
+			</label> <label
+				class="btn btn-default btn-circle btn-lg {{vm.active('EXTERNAL')}}">
+				<input type="radio" value="EXTERNAL" ng-model="vm.dashboard.mode"><i
+				class="glyphicon glyphicon-paperclip"></i>
+			</label>
+		</div>
+
+		<div style="margin-top: 10px;">
+			<div ng-show="vm.dashboard.mode == 'MANUAL'">
+				<h2 class="modal-title">Create Dashboard</h2>
+			</div>
+
+			<div ng-show="vm.dashboard.mode == 'KIBANA'">
+				<h2 class="modal-title">Import Kibana Dashboard</h2>
+			</div>
+
+			<div ng-show="vm.dashboard.mode == 'EXTERNAL'">
+				<h2 class="modal-title">Create External Dashboard</h2>
+			</div>
+		</div>
+	</div>
+	<div class="modal-body">
+		<jhi-alert-error></jhi-alert-error>
+
+		<div ng-show="vm.dashboard.mode == 'MANUAL'">
+			<div class="form-group">
+				<label class="control-label" for="field_dashboardName">
+					Label</label> <input type="text" class="form-control" name="dashboardName"
+					id="field_dashboardName" ng-model="vm.dashboard.dashboardName" />
+			</div>
+
+			<div class="form-group">
+				<label class="control-label" for="field_dashboardDescription">
+					Description</label>
+				<textarea rows="2" class="form-control" name="dashboardDescription"
+					id="field_dashboardDescription"
+					ng-model="vm.dashboard.dashboardDescription"></textarea>
+			</div>
+		</div>
+		<div class="form-group" ng-show="vm.dashboard.mode == 'EXTERNAL'">
+
+			<div class="form-group">
+				<label class="control-label" for="field_dashboardNameExt">Label</label>
+				<input type="text" class="form-control" name="dashboardName"
+					id="field_dashboardNameExt" ng-model="vm.dashboard.dashboardName" />
+			</div>
+
+			<label class="control-label" for="field_dashboardContent">Content</label>
+			<textarea rows="4" class="form-control" name="dashboardContent"
+				id="field_dashboardContent" ng-model="vm.dashboard.content"></textarea>
+		</div>
+
+		<div ng-show="vm.dashboard.mode == 'KIBANA'">
+			<button type="button" class="btn btn-success"
+				go-click="{{vm.kibanaURL}}"
+				style="width: 80%; height: 50px; margin-top: 15px; margin-bottom: 40px; margin-left: 10%; margin-right: 10%;">Create
+				a new Dasbhboard with Kibana</button>
+
+			<div class="form-group" style="margin-top: 10px;">
+				<label for="field_kibanadashboard">Kibana Dasbhboard</label> <select
+					class="form-control" id="field_kibanadashboard"
+					name="measureInstance" ng-model="vm.dashboard.kibanaId"
+					ng-options="dash.id as dash.name for dash in vm.kibanadashboards"
+					style="width: 95%; display: inline;">
+				</select>
+				<button type="button" class="btn btn-warning"
+					ng-click="vm.reloadDasbhboards()" style="float: right;">
+					<span class="glyphicon glyphicon-repeat" aria-hiden="true"></span>
+				</button>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label" for="field_dashboardNameKib">
+					Label</label> <input type="text" class="form-control" name="dashboardName"
+					id="field_dashboardNameKib" ng-model="vm.dashboard.dashboardName" />
+			</div>
+
+
+			<div class="form-group">
+				<div class="form-group">
+					<label for="field_graphicSizeD">Height</label>
+					<div class="input-group" id="field_graphicSizeD">
+						<input type="text" class="form-control"
+							ng-model="vm.dashboard.size">
+						<div class="input-group-addon">px</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="field_timeD">Display Data From :</label>
+				<div class="input-group" id="field_timeD">
+					<input type="text" class="form-control"
+						ng-model="vm.timePeriodeIndex">
+					<div class="input-group-addon">
+						<select ng-model="vm.timePeriodeValue">
+							<option value="m">Minutes</option>
+							<option value="h">Hours</option>
+							<option value="d">Days</option>
+							<option value="w">Weeks</option>
+							<option value="M">Months</option>
+							<option value="Y">Years</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label" for="field_autorefreshdash">Auto
+					Refresh</label> <input type="checkbox" class="form-control" name="manageLastMeasurement" id="field_autorefreshdash"
+					ng-model="vm.dashboard.auto" />
+			</div>
+		</div>
+		<div ng-if="vm.hasManagerRole == 'true'" class="form-group">
+			<label>Shared Dashboard</label>
+			<div class="form-check">
+			  <input type="radio" class="custom-form-control" id="dontShareDashboard" name="sharedDashboard" ng-model="vm.dashboard.sharedDashboard" value="unchecked" />
+			  <label class="control-label" for="dontShareDashboard">Personal Dashboard</label>
+			</div>
+			
+			<div class="form-check">
+			  <input type="radio" class="custom-form-control" id="shareDashboard" name="sharedDashboard" ng-model="vm.dashboard.sharedDashboard" value="checked" />
+			  <label class="control-label" for="shareDashboard">Share Dashboard</label>
+			</div>
+			<div ng-if="vm.dashboard.sharedDashboard == 'checked'">
+				<table class="table table-striped">
+					<thead class="table-info">
+		                <tr>
+		                    <th>#</th>
+		                    <th>Login</th>
+		                    <th>First Name</th>
+		                    <th>Last Name</th>
+		                    <th>Email</th>
+		                    <th>Role</th>
+		                </tr>
+		            </thead>
+					<tbody>
+						<tr ng-repeat="cand in vm.candidates">
+		                   	<td>
+		                    	<input class="custom-form-control" type="checkbox" name="cand.id" value="cand.id"
+		                    	 ng-checked="vm.dashboard.inviters.indexOf(cand.id) > -1" ng-click="vm.toggleSelection(cand.id)"/>
+		                    </td>
+		                    <td>{{cand.login}}</td>
+		                    <td>{{cand.first_name}}</td>
+		                    <td>{{cand.last_name}}</td>
+		                    <td>{{cand.email}}</td>
+		                    <td>{{cand.role}}</td>
+		                </tr>
+	                </tbody>
+	            </table>
+			</div>
+		</div>
+
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal"
+				ng-click="vm.clear()">
+				<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+			</button>
+
+			<button type="submit" ng-disabled="editForm.$invalid || vm.isSaving"
+				class="btn btn-primary" ng-show="vm.dashboard.mode != 'NONE'">
+				<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+			</button>
+
+		</div>
+	</div>
+</form>
