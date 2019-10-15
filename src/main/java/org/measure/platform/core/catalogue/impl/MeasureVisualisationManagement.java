@@ -49,8 +49,8 @@ public class MeasureVisualisationManagement implements IMeasureVisaulisationMana
     @Autowired
     private MessageSource messageSource;
 
-    @Value("${measure.kibana.adress}")
-    private String kibanaAdress;
+    @Value("${measureplatform.kibana.url}")
+    private String kibanaUrl;
             
     @Inject 
     private IMeasureInstanceService measureInstanceService; 
@@ -79,7 +79,7 @@ public class MeasureVisualisationManagement implements IMeasureVisaulisationMana
             	label = visualisedProperty;
             }
    
-            return messageSource.getMessage("viewtype.view2", new Object[] { refresh, periode,measure, font, height, width, kibanaAdress, visualisedProperty, color, IndexFormat.getMeasureInstanceIndex(measureView.getMeasureinstance().getInstanceName()),label }, Locale.ENGLISH);
+            return messageSource.getMessage("viewtype.view2", new Object[] { refresh, periode,measure, font, height, width, kibanaUrl, visualisedProperty, color, IndexFormat.getMeasureInstanceIndex(measureView.getMeasureinstance().getInstanceName()),label }, Locale.ENGLISH);
         } else {
             if (measureView.getType().equals(ViewTypeEnum.LIGNE.toString())) {
                 type = "line";
@@ -108,7 +108,7 @@ public class MeasureVisualisationManagement implements IMeasureVisaulisationMana
             	label = visualisedProperty +" / " + interval;
             }
         
-            return messageSource.getMessage("viewtype.view1", new Object[] { type, refresh, periode, measure,color, interval, height, width, kibanaAdress, visualisedProperty, dateIndex,color, IndexFormat.getMeasureInstanceIndex(measureView.getMeasureinstance().getInstanceName()),label}, Locale.ENGLISH);
+            return messageSource.getMessage("viewtype.view1", new Object[] { type, refresh, periode, measure,color, interval, height, width, kibanaUrl, visualisedProperty, dateIndex,color, IndexFormat.getMeasureInstanceIndex(measureView.getMeasureinstance().getInstanceName()),label}, Locale.ENGLISH);
         }
     }
 
@@ -119,7 +119,7 @@ public class MeasureVisualisationManagement implements IMeasureVisaulisationMana
         String periode = measureView.getTimePeriode();
         String refresh = measureView.isAuto() ? "f" : "t";
             
-        return messageSource.getMessage("viewtype.view3",new Object[] { height, width, kibanaAdress, measureView.getKibanaName(),refresh ,periode}, Locale.ENGLISH);
+        return messageSource.getMessage("viewtype.view3",new Object[] { height, width, kibanaUrl, measureView.getKibanaName(),refresh ,periode}, Locale.ENGLISH);
     }
   
     @Override
@@ -127,7 +127,7 @@ public class MeasureVisualisationManagement implements IMeasureVisaulisationMana
         String height = measureView.getHeight();               
         String periode = measureView.getTimePeriode();
         String refresh = measureView.isAuto() ? "f" : "t";       
-        return messageSource.getMessage("viewtype.view4",new Object[] { height, kibanaAdress, measureView.getKibanaName(),refresh,periode }, Locale.ENGLISH);
+        return messageSource.getMessage("viewtype.view4",new Object[] { height, kibanaUrl, measureView.getKibanaName(),refresh,periode }, Locale.ENGLISH);
     }
     
 
@@ -201,7 +201,7 @@ public class MeasureVisualisationManagement implements IMeasureVisaulisationMana
         	byte[] decodedBytes = Base64.getDecoder().decode(mView.getCustomData());
         	String decodedString = new String(decodedBytes);  
         	decodedString = decodedString.replace("{PLATFORM_INDEX}",  IndexFormat.getMeasureInstanceIndex(measure.getInstanceName()));
-        	decodedString = decodedString.replace("{PLATFORM_URL}",  kibanaAdress);
+        	decodedString = decodedString.replace("{PLATFORM_URL}",  kibanaUrl);
         	decodedString = decodedString.replace("{PLATFORM_TIMEPERIODE}",  measureView.getTimePeriode());   	
         	decodedString = decodedString.replace("{PLATFORM_WIDTH}", measureView.getWidth());
         	decodedString = decodedString.replace("{PLATFORM_HEIGHT}", measureView.getHeight());

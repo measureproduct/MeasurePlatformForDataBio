@@ -27,7 +27,6 @@ import org.measure.platform.core.data.api.IMeasureViewService;
 import org.measure.platform.core.data.entity.MeasureInstance;
 import org.measure.platform.core.data.entity.MeasureView;
 import org.measure.smm.measure.model.SMMMeasure;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,9 +35,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "api/measure-visualisation")
 public class MeasureVisualisationResource {
-
-	@Value("${measure.kibana.adress}")
-	private String kibanaAdress;
 
 	@Inject
 	private IMeasureVisaulisationManagement visualisationManagement;

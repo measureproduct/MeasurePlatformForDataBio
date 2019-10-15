@@ -55,7 +55,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class ElasticsearchIndexManager implements IElasticsearchIndexManager {
 
-	@Value("${measure.kibana.adress}")
+	@Value("${measureplatform.kibana.api.endpoints}")
 	private String kibanaAddress;
 
 	@Inject

@@ -51,8 +51,8 @@ public class DashboardServiceImpl implements IDashboardService {
     @Autowired
     private MessageSource messageSource;
 
-    @Value("${measure.kibana.adress}")
-    private String kibanaAdress;
+    @Value("${measureplatform.kibana.url}")
+    private String kibanaUrl;
 
     @Inject
     private DashboardRepository dashboardRepository;
@@ -92,7 +92,7 @@ public class DashboardServiceImpl implements IDashboardService {
         String periode = dashboard.getTimePeriode();
         String refresh = dashboard.isAuto() ? "f" : "t";
         
-        String value = messageSource.getMessage("viewtype.view4",new Object[] { height, kibanaAdress, dashboard.getKibanaId(),refresh,periode }, Locale.ENGLISH);
+        String value = messageSource.getMessage("viewtype.view4",new Object[] { height, kibanaUrl, dashboard.getKibanaId(),refresh,periode }, Locale.ENGLISH);
         dashboard.setContent(value);
     }
 
