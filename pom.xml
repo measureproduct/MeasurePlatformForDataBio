@@ -12,10 +12,10 @@
 	</parent>
 
 	<groupId>org.measure.platform</groupId>
-	<artifactId>measure-platform</artifactId>
-	<version>1.0.2</version>
+	<artifactId>measure-platform-for-databio</artifactId>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
-	<name>Measure Platform</name>
+	<name>Measure Platform For DataBio</name>
 
 
 	<prerequisites>
